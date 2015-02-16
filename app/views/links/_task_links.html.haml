@@ -1,0 +1,6 @@
+- links.each do |link|
+  %a{:href => link.url, :title => link.link_title}
+    -if(link.link_type == 'youtube')
+      %span.glyphicon.glyphicon-facetime-video.text-danger
+    -elsif(link.link_type == 'pdf')
+      %span.glyphicon.glyphicon-file.text-primary

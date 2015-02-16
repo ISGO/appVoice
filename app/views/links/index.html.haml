@@ -1,0 +1,19 @@
+%h1 Listing links
+%table
+  %tr
+    %th Link title
+    %th Url
+    %th Link type
+    %th
+    %th
+    %th
+  - @links.each do |link|
+    %tr
+      %td= link.link_title
+      %td= link.url
+      %td= link.link_type
+      %td= link_to 'Show', [link.task, link]
+      %td= link_to 'Edit', edit_task_link_path(link.task, link)
+      %td= link_to 'Destroy', [link.task, link], method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Link', new_task_link_path

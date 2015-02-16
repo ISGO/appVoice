@@ -1,0 +1,5 @@
+%h1 Editing link
+= render 'form'
+= link_to 'Show', [@link.task, @link]
+|
+\#{link_to 'Back', task_links_path(@link.task)}

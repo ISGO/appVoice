@@ -1,0 +1,17 @@
+%p#notice= notice
+%p
+  %b Task title:
+  = @task.task_title
+%p
+  %b Description:
+  = @task.description
+%p
+  %b Instructions:
+  = @task.instructions
+%p
+  %b Image:
+  = @task.image
+= link_to 'Links', task_links_path(@task)
+|
+\#{link_to 'Edit', edit_task_path(@task)} |
+\#{link_to 'Back', tasks_path}

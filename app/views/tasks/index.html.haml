@@ -1,0 +1,29 @@
+
+.container
+  .row
+    .col-md-6.col-md-offset-1
+      %h1 
+        רשימת מטלות
+        %small
+          = link_to 'מטלה חדשה', new_task_path, class: 'btn btn-success btn-xs', role: 'button'
+
+      %table.table.table-hover.text-center
+        %tr
+          %th.text-center.col-md-2 כותרת
+          %th.text-center.col-md-2 תיאור
+          %th.text-center.col-md-2 הוראות
+          %th.text-center.col-md-2 תמונה
+          %th.text-center.col-md-2 קישורים
+          %th.text-center.col-md-2 פעולות
+        - @tasks.each do |task|
+          %tr
+            %td= task.task_title
+            %td= task.description
+            %td= task.instructions
+            %td= task.image
+            %td= render partial: 'links/task_links', :locals => { :links => task.links }
+            %td
+              = link_to 'הצג', task, class: 'btn btn-default btn-sm', role: 'button'
+              = link_to 'ערוך', edit_task_path(task), class: 'btn btn-primary btn-sm', role: 'button'
+              = link_to 'מחק', task, method: :delete, data: { confirm: 'לבצע מחיקה?' }, class: 'btn btn-danger btn-sm', role: 'button'
+      

@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %b Link title:
+  = @link.link_title
+%p
+  %b Url:
+  = @link.url
+%p
+  %b Link type:
+  = @link.link_type
+= link_to 'Edit', edit_task_link_path(@link.task, @link)
+|
+\#{link_to 'Back', task_links_path(@link.task)}
